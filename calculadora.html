@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Basic</title>
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+    <div class="container">
+        <div class="base">
+            <input type="text" class="display" id="valueInput" readonly>
+            <table>
+                <tr>
+                    <td><button class="btn" onclick="addToInput('7')">7</button></td>
+                    <td><button class="btn" onclick="addToInput('8')">8</button></td>
+                    <td><button class="btn" onclick="addToInput('9')">9</button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn" onclick="addToInput('4')">4</button></td>
+                    <td><button class="btn" onclick="addToInput('5')">5</button></td>
+                    <td><button class="btn" onclick="addToInput('6')">6</button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn" onclick="addToInput('1')">1</button></td>
+                    <td><button class="btn" onclick="addToInput('2')">2</button></td>
+                    <td><button class="btn" onclick="addToInput('3')">3</button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn" onclick="addToInput('0')">0</button></td>
+                    <td><button class="btn btn-operator" onclick="addToInput('+')">+</button></td>
+                    <td><button class="btn btn-operator" onclick="addToInput('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-operator" onclick="addToInput('*')">*</button></td>
+                    <td><button class="btn btn-operator" onclick="addToInput('/')">/</button></td>
+                    <td><button class="btn btn-operator" onclick="calculate()">=</button></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><button class="btn btn-operator" onclick="clearInput()">C</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function addToInput(value) {
+            document.getElementById("valueInput").value += value;
+        }
+
+        function calculate() {
+            var input = document.getElementById("valueInput").value;
+            var result = eval(input);
+            document.getElementById("valueInput").value = result;
+        }
+
+        function clearInput() {
+            document.getElementById("valueInput").value = "";
+        }
+    </script>
+</body>
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .base {
+        display: inline-block;
+        background-color: gray;
+        width: 310px;
+        height: 100%;
+        padding: 10px;
+    }
+
+    .btn {
+        height: 80px;
+        width: 80px;
+        margin: 5px;
+        font-size: 20px;
+    }
+
+    .btn-operator {
+        background-color: lightblue;
+    }
+
+    .display {
+        width: 300px;
+        height: 40px;
+        font-size: 24px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+</style>
+
+</html>
